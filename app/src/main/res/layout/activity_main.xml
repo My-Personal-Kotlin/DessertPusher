@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -86,7 +85,7 @@
             android:textSize="@dimen/large_text_size"
             app:layout_constraintBottom_toTopOf="@+id/margin_bottom_guide"
             app:layout_constraintEnd_toStartOf="@+id/margin_end_guide"
-            tools:text="$92" />
+            tools:text="$137" />
 
         <TextView
             android:id="@+id/dessert_sold_text"
@@ -110,7 +109,7 @@
             android:textSize="@dimen/medium_text_size"
             app:layout_constraintBottom_toTopOf="@+id/revenue_text"
             app:layout_constraintEnd_toStartOf="@+id/margin_end_guide"
-            tools:text="12" />
+            tools:text="13" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

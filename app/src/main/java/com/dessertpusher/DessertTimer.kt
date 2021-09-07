@@ -25,8 +25,14 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
         lifecycle.addObserver(this)
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    fun onCreate(){
+        Timber.i("onCreate Testing Timer")
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun startTimer() {
+        Timber.i("onStart Testing Timer")
         // Create the runnable action, which prints out a log and increments the seconds counter
         runnable = Runnable {
             secondsCount++
@@ -36,7 +42,6 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
             // 1 second (1000ms)
             handler.postDelayed(runnable, 1000)
         }
-
         // This is what initially starts the timer
         handler.postDelayed(runnable, 1000)
 
@@ -44,10 +49,26 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
         // In this case, no looper is defined, and it defaults to the main or UI thread.
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    fun onResume(){
+        Timber.i("onResume Testing Timer")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    fun onPause(){
+        Timber.i("onPause Testing Timer")
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun stopTimer() {
+        Timber.i("onStop Testing Timer")
         // Removes all pending posts of runnable from the handler's queue, effectively stopping the
         // timer
         handler.removeCallbacks(runnable)
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    fun onDestroy(){
+        Timber.i("onDestroy Testing Timer")
     }
 }

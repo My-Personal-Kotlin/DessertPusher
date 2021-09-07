@@ -40,18 +40,19 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     private val allDesserts = listOf(
         Dessert(R.drawable.cupcake, 5, 0),
         Dessert(R.drawable.donut, 10, 5),
-        Dessert(R.drawable.eclair, 15, 20),
-        Dessert(R.drawable.froyo, 30, 50),
-        Dessert(R.drawable.gingerbread, 50, 100),
-        Dessert(R.drawable.honeycomb, 100, 200),
-        Dessert(R.drawable.icecreamsandwich, 500, 500),
-        Dessert(R.drawable.jellybean, 1000, 1000),
-        Dessert(R.drawable.kitkat, 2000, 2000),
-        Dessert(R.drawable.lollipop, 3000, 4000),
-        Dessert(R.drawable.marshmallow, 4000, 8000),
-        Dessert(R.drawable.nougat, 5000, 16000),
-        Dessert(R.drawable.oreo, 6000, 20000)
+        Dessert(R.drawable.eclair, 15, 10),
+        Dessert(R.drawable.froyo, 30, 15),
+        Dessert(R.drawable.gingerbread, 50, 20),
+        Dessert(R.drawable.honeycomb, 100, 25),
+        Dessert(R.drawable.icecreamsandwich, 500, 30),
+        Dessert(R.drawable.jellybean, 1000, 35),
+        Dessert(R.drawable.kitkat, 2000, 40),
+        Dessert(R.drawable.lollipop, 3000, 45),
+        Dessert(R.drawable.marshmallow, 4000, 50),
+        Dessert(R.drawable.nougat, 5000, 55),
+        Dessert(R.drawable.oreo, 6000, 60)
     )
+
     private var currentDessert = allDesserts[0]
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,7 +108,9 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
      * Determine which dessert to show.
      */
     private fun showCurrentDessert() {
+
         var newDessert = allDesserts[0]
+
         for (dessert in allDesserts) {
             if (dessertsSold >= dessert.startProductionAmount) {
                 newDessert = dessert
@@ -161,13 +164,13 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         outState.putInt(KEY_REVENUE, revenue)
         outState.putInt(KEY_DESSERT_SOLD, dessertsSold)
         outState.putInt(KEY_TIMER_SECONDS, dessertTimer.secondsCount)
-        Timber.i("onSaveInstanceState Called")
+        Timber.v("onSaveInstanceState Called")
         super.onSaveInstanceState(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        Timber.i("onRestoreInstanceState Called")
+        Timber.v("onRestoreInstanceState Called")
     }
 
     /** Lifecycle Methods **/
